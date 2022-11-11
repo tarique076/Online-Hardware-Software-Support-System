@@ -11,7 +11,7 @@ import com.hardware_software_support.model.Hod;
 
 public interface HodDao {
 	
-	public Hod loginHod() throws HodException;
+	public Hod loginHod(String username, String password) throws HodException;
 	
 	public String registerEngineer() throws EngineerException;
 	
