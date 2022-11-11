@@ -11,15 +11,15 @@ import com.hardware_software_support.model.Hod;
 
 public interface HodDao {
 	
-	public Hod loginHod() throws HodException;
+	public Hod loginHod(String username, String password) throws HodException;
 	
-	public String registerEngineer() throws EngineerException;
+	public String registerEngineer(String name, String username, String password, String type, String location) throws EngineerException;
 	
 	public List<Engineer> seeEngineers() throws EngineerException;
 	
-	public String deleteEngineer() throws EngineerException;
+	public String deleteEngineer(int engId) throws EngineerException;
 	
 	public List<Complaints> checkComplaints() throws ComplaintException;
 	
-	public String assignComplaintToEngineer() throws EngineerException;
+	public String assignComplaintToEngineer(int complaintId, int engId) throws EngineerException;
 }
