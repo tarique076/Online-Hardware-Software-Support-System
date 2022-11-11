@@ -13,7 +13,7 @@ public interface HodDao {
 	
 	public Hod loginHod(String username, String password) throws HodException;
 	
-	public String registerEngineer() throws EngineerException;
+	public String registerEngineer(String name, String username, String password, String type, String location) throws EngineerException;
 	
 	public List<Engineer> seeEngineers() throws EngineerException;
 	
