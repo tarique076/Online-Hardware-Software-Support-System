@@ -17,9 +17,9 @@ public interface HodDao {
 	
 	public List<Engineer> seeEngineers() throws EngineerException;
 	
-	public String deleteEngineer() throws EngineerException;
+	public String deleteEngineer(int engId) throws EngineerException;
 	
 	public List<Complaints> checkComplaints() throws ComplaintException;
 	
-	public String assignComplaintToEngineer() throws EngineerException;
+	public String assignComplaintToEngineer(int complaintId, int engId) throws EngineerException;
 }

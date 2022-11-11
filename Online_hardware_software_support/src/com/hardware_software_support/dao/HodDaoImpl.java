@@ -109,21 +109,85 @@ public class HodDaoImpl implements HodDao{
 	}
 
 	@Override
-	public String deleteEngineer() throws EngineerException {
-		// TODO Auto-generated method stub
-		return null;
+	public String deleteEngineer(int engId) throws EngineerException {
+		String res = "Engineer not found.";
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("delete from engineer where engId=?");
+			
+			ps.setInt(1, engId);
+			
+			int x = ps.executeUpdate();
+			
+			if(x>0) {
+				res = "Record of engineer with id "+ engId +" deleted.";
+			}else {
+				throw new EngineerException("Engineer with id "+ engId + " not found.");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new EngineerException(e.getMessage());
+		}
+		return res;
 	}
 
 	@Override
 	public List<Complaints> checkComplaints() throws ComplaintException {
-		// TODO Auto-generated method stub
-		return null;
+		List<Complaints> comps = new ArrayList<>();
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("select * from complaints");
+			
+			ResultSet rs = ps.executeQuery();
+			
+			while(rs.next()) {
+				Complaints comp = new Complaints();
+				
+				comp.setComplaintId(rs.getInt("complaintId"));
+				comp.setEmpId(rs.getInt("empId"));
+				comp.setComplaintType(rs.getString("complaintType"));
+				comp.setEngId(rs.getInt("engId"));
+				comp.setDateRaised(rs.getString("dateRaised"));
+				comp.setDateResolved(rs.getString("dateResolved"));
+				comp.setStatus(rs.getString("status"));
+				
+				comps.add(comp);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return comps;
 	}
 
 	@Override
-	public String assignComplaintToEngineer() throws EngineerException {
-		// TODO Auto-generated method stub
-		return null;
+	public String assignComplaintToEngineer(int complaintId, int engId) throws EngineerException {
+		String res = "Complaint Id not found. Please enter a valid complaint Id";
+		
+		try(Connection conn = DBUtil.provideConnection()) {
+			
+			PreparedStatement ps = conn.prepareStatement("update complaints set engId=? where "
+					+ "complaintId=?");
+			
+			ps.setInt(1, engId);
+			ps.setInt(2, complaintId);
+			int x = ps.executeUpdate();
+			if(x>0) {
+				res = "Complaint with id " + complaintId +" assigned to  engineer with id " + engId;
+			}else {
+				throw new EngineerException("Engineer not found.");
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new EngineerException(e.getMessage());
+		}
+		
+		return res;
 	}
 
 }

@@ -50,15 +50,23 @@ public class Main {
 				}				
 					
 				else if(hodChoice==3) {
-					
+					HodDeleteEngineer dlt = new HodDeleteEngineer();
+					dlt.hodDeleteEngineer();
+					System.out.println("====================================");
 				}
 							
 				else if(hodChoice==4) {
-					
+					HodCheckComplaints chkCom = new HodCheckComplaints();
+					System.out.println("All Complaints");
+					System.out.println("=====================================");
+					chkCom.hodCheckAllComplaints();
+					System.out.println("=====================================");
 				}
 				
 				else if(hodChoice==5) {
-					
+					HodAssignComplaintToEngineer assign = new HodAssignComplaintToEngineer();
+					assign.assignToEngineer();
+					System.out.println("=====================================");
 				}
 					
 				else if(hodChoice==6) {
