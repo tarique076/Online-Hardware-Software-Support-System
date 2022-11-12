@@ -1,5 +1,7 @@
 package com.hardware_software_support.model;
 
+import java.sql.Date;
+
 public class Complaints {
 
 	private int complaintId;
@@ -7,13 +9,13 @@ public class Complaints {
 	private String complaintType;
 	private int engId;
 	private String status;
-	private String dateRaised;
-	private String dateResolved;
+	private Date dateRaised;
+	private Date dateResolved;
 	
 	public Complaints() {}
 
-	public Complaints(int complaintId, int empId, String complaintType, int engId, String status, String dateRaised,
-			String dateResolved) {
+	public Complaints(int complaintId, int empId, String complaintType, int engId, String status, Date dateRaised,
+			Date dateResolved) {
 		super();
 		this.complaintId = complaintId;
 		this.empId = empId;
@@ -64,20 +66,20 @@ public class Complaints {
 		this.status = status;
 	}
 
-	public String getDateRaised() {
+	public Date getDateRaised() {
 		return dateRaised;
 	}
 
-	public void setDateRaised(String dateRaised) {
-		this.dateRaised = dateRaised;
+	public void setDateRaised(Date date) {
+		this.dateRaised = date;
 	}
 
-	public String getDateResolved() {
+	public Date getDateResolved() {
 		return dateResolved;
 	}
 
-	public void setDateResolved(String dateResolved) {
-		this.dateResolved = dateResolved;
+	public void setDateResolved(Date date) {
+		this.dateResolved = date;
 	}
 
 	@Override

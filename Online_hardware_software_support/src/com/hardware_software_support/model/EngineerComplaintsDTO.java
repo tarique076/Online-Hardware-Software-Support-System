@@ -1,5 +1,8 @@
 package com.hardware_software_support.model;
 
+import java.sql.Date;
+//import java.util.Date;
+
 public class EngineerComplaintsDTO {
 	
 	private int engId;
@@ -12,13 +15,13 @@ public class EngineerComplaintsDTO {
 	private int empId;
 	private String complaintType;
 	private String status;
-	private String dateRaised;
+	private Date dateRaised;
 	private String dateResolved;
 
 	public EngineerComplaintsDTO() {}
 
 	public EngineerComplaintsDTO(int engId, String name, String userName, String password, String type, String location,
-			int complaintId, int empId, String complaintType, String status, String dateRaised, String dateResolved) {
+			int complaintId, int empId, String complaintType, String status, Date dateRaised, String dateResolved) {
 		super();
 		this.engId = engId;
 		this.name = name;
@@ -114,12 +117,12 @@ public class EngineerComplaintsDTO {
 		this.status = status;
 	}
 
-	public String getDateRaised() {
+	public Date getDateRaised() {
 		return dateRaised;
 	}
 
-	public void setDateRaised(String dateRaised) {
-		this.dateRaised = dateRaised;
+	public void setDateRaised(Date date) {
+		this.dateRaised = date;
 	}
 
 	public String getDateResolved() {
@@ -137,6 +140,5 @@ public class EngineerComplaintsDTO {
 				+ empId + ", complaintType=" + complaintType + ", status=" + status + ", dateRaised=" + dateRaised
 				+ ", dateResolved=" + dateResolved + "]";
 	}
-	
 	
 }
