@@ -93,7 +93,7 @@ public class EmployeeDaoImpl implements EmployeeDao{
 			ps.setInt(1, complaintId);
 			ps.setInt(2, empId);
 			ps.setString(3, compType);
-			ps.setString(4, "Raised.");
+			ps.setString(4, "Raised");
 			ps.setDate(5, java.sql.Date.valueOf(dateRaised));
 			
 			int x = ps.executeUpdate();
