@@ -150,8 +150,8 @@ public class HodDaoImpl implements HodDao{
 				comp.setEmpId(rs.getInt("empId"));
 				comp.setComplaintType(rs.getString("complaintType"));
 				comp.setEngId(rs.getInt("engId"));
-				comp.setDateRaised(rs.getString("dateRaised"));
-				comp.setDateResolved(rs.getString("dateResolved"));
+				comp.setDateRaised(rs.getDate("dateRaised"));
+				comp.setDateResolved(rs.getDate("dateResolved"));
 				comp.setStatus(rs.getString("status"));
 				
 				comps.add(comp);
@@ -170,7 +170,7 @@ public class HodDaoImpl implements HodDao{
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
-			PreparedStatement ps = conn.prepareStatement("update complaints set engId=? where "
+			PreparedStatement ps = conn.prepareStatement("update complaints set engId=?, status='Assigned' where "
 					+ "complaintId=?");
 			
 			ps.setInt(1, engId);

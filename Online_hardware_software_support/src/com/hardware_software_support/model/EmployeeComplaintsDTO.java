@@ -1,5 +1,7 @@
 package com.hardware_software_support.model;
 
+import java.util.Date;
+
 public class EmployeeComplaintsDTO {
 	
 	private int empId;
@@ -11,13 +13,13 @@ public class EmployeeComplaintsDTO {
 	private String complaintType;
 	private int engId;
 	private String status;
-	private String dateRaised;
+	private Date dateRaised;
 	private String dateResolved;
 	
 	public EmployeeComplaintsDTO() {}
 
 	public EmployeeComplaintsDTO(int empId, int deptid, String name, String userName, String password, int complaintId,
-			String complaintType, int engId, String status, String dateRaised, String dateResolved) {
+			String complaintType, int engId, String status, Date dateRaised, String dateResolved) {
 		this.empId = empId;
 		this.deptid = deptid;
 		this.name = name;
@@ -103,11 +105,11 @@ public class EmployeeComplaintsDTO {
 		this.status = status;
 	}
 
-	public String getDateRaised() {
+	public Date getDateRaised() {
 		return dateRaised;
 	}
 
-	public void setDateRaised(String dateRaised) {
+	public void setDateRaised(Date dateRaised) {
 		this.dateRaised = dateRaised;
 	}
 
