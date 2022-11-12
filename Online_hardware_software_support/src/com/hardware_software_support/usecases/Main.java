@@ -2,6 +2,8 @@ package com.hardware_software_support.usecases;
 
 import java.util.Scanner;
 
+import com.hardware_software_support.exceptions.ComplaintException;
+
 public class Main {
 	
 	public static void main(String[] args) {
@@ -151,7 +153,64 @@ public class Main {
 			}
 			
 		case 3:
+			System.out.println("System Engineer");
+			System.out.println("==================================================");
 			
+			EngineerLogin engLogin = new EngineerLogin();
+			int engIdLoggedin=engLogin.engineerLogin();
+			System.out.println("=================================================");
+			
+//****************Login Successful*************************
+			
+			while(true) {
+				
+				System.out.println("Enter 1 to check complaints assigned.");
+				System.out.println("Enter 2 to update the status of a complaint.");
+				System.out.println("Enter 3 to see list of all the complaints attended.");
+				System.out.println("Enter 4 to change password.");
+				System.out.println("Enter 5 to logout.");
+				
+				int engChoice = sc.nextInt();
+				if(engChoice==1) {
+					EngineerCheckComplaintsAssigned engCompsAss = new EngineerCheckComplaintsAssigned();
+					System.out.println("Complaints Assigned.");
+					System.out.println("==============================================");
+					try {
+						engCompsAss.checkComplaintsAssigned(engIdLoggedin);
+						System.out.println("==========================================");
+					} catch (ComplaintException e) {
+						// TODO Auto-generated catch block
+						System.out.println(e.getMessage());
+					}
+					
+				}else if(engChoice==2) {
+					System.out.println("Update complaint status");
+					System.out.println("==============================================");
+					EngineerUpdateComplaintStatus engUpdateComplaint = new EngineerUpdateComplaintStatus();
+					engUpdateComplaint.engUpdateComplaintStatus();
+					System.out.println("==============================================");
+					
+				}else if (engChoice==3) {
+					System.out.println("All complaints attended.");
+					System.out.println("================================================");
+					EngineerCheckComplaintsAttended engAttended = new EngineerCheckComplaintsAttended();
+					engAttended.checkComplaintsAttended(engIdLoggedin);
+					System.out.println("=================================================");
+					
+				}else if(engChoice==4) {
+					System.out.println("Change password.");
+					System.out.println("=================================================");
+					EngineerChangePassword engChangePswrd = new EngineerChangePassword();
+					engChangePswrd.engineerChangePassword();
+					System.out.println("==================================================");
+					
+				}else if(engChoice==5) {
+					
+					main(args);
+				}else {
+					System.out.println("Invalid choice. Please try again.");
+				}
+			}
 			
 			
 		case 4: 
