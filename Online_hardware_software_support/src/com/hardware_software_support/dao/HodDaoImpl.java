@@ -139,7 +139,7 @@ public class HodDaoImpl implements HodDao{
 		
 		try(Connection conn = DBUtil.provideConnection()) {
 			
-			PreparedStatement ps = conn.prepareStatement("select * from complaints");
+			PreparedStatement ps = conn.prepareStatement("select * from complaints where status='Raised'");
 			
 			ResultSet rs = ps.executeQuery();
 			
