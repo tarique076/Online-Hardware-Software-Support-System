@@ -15,7 +15,7 @@ public interface HodDao {
 	
 	public String registerEngineer(String name, String username, String password, String type, String location) throws EngineerException;
 	
-	public List<Engineer> seeEngineers() throws EngineerException;
+	public List<Engineer> getEngineers() throws EngineerException;
 	
 	public String deleteEngineer(int engId) throws EngineerException;
 	

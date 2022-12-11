@@ -78,7 +78,7 @@ public class HodDaoImpl implements HodDao{
 	}
 
 	@Override
-	public List<Engineer> seeEngineers() throws EngineerException {
+	public List<Engineer> getEngineers() throws EngineerException {
 		List<Engineer> engs = new ArrayList<>();
 		
 		try(Connection conn = DBUtil.provideConnection()) {

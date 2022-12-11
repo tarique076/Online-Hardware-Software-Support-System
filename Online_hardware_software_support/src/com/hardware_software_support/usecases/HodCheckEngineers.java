@@ -13,7 +13,7 @@ public class HodCheckEngineers {
 		HodDao dao = new HodDaoImpl();
 		
 		try {
-			List<Engineer> engs = dao.seeEngineers();
+			List<Engineer> engs = dao.getEngineers();
 			engs.forEach(eng -> System.out.println(eng));
 			System.out.println("===============================");
 			

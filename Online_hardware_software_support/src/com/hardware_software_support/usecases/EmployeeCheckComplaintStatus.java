@@ -24,6 +24,7 @@ public class EmployeeCheckComplaintStatus {
 			System.out.println("Complaint Type: " + dto.getComplaintType());
 			System.out.println("Engineer id: " + dto.getEngId());
 			System.out.println("Engineer name: " + dto.getName());
+			System.out.println("Status: " + dto.getStatus());
 			System.out.println("Date raised: " + dto.getDateRaised());
 		} catch (ComplaintException e) {
 			// TODO Auto-generated catch block
